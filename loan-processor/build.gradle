@@ -1,0 +1,7 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'  // RabbitMQ
+    implementation 'org.json:json:20240303'
+    implementation project(":loan-service") // 또는 DTO만 따로 분리한 shared-module
+}

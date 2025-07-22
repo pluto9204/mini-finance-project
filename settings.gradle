@@ -1,0 +1,6 @@
+rootProject.name = 'mini-finance-project'
+include 'auth-service'
+include 'loan-service'
+include 'loan-processor'
+include 'notification-service'
+include 'common-service'

@@ -1,0 +1,4 @@
+다음주에는 이거가지고 테스트부터.
+
+curl -X POST http://localhost:8081/auth/login -H "Content-Type: application/json" -d "{\"id\":\"user1\", \"password\":\"1234\"}"
+  

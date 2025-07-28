@@ -8,15 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.notification.dto.LoanResultEntity;
-import com.service.notification.repository.LoanResultRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class LoanResultConsumer {
-	private final LoanResultRepository loanResultRepository;
-	
+public class LoanResultConsumer {	
 	private final NotificationService notificationService;
 
 	private static final Logger logger = LoggerFactory.getLogger(LoanResultConsumer.class);
@@ -29,17 +26,6 @@ public class LoanResultConsumer {
     	
     	String userId = loanResultObject.getString("userId");
     	String result = loanResultObject.getString("result");
-    	String reason = loanResultObject.getString("reason");
-    	Integer amount = (Integer) loanResultObject.get("amount");
-    	
-    	LoanResultEntity loanResultEntity = new LoanResultEntity();
-
-    	loanResultEntity.setUserId(userId);
-    	loanResultEntity.setResult(result);
-    	loanResultEntity.setReason(reason);
-    	loanResultEntity.setAmount(amount);
-    	
-    	loanResultRepository.save(loanResultEntity);
     	
     	if("APPROVED".equals(result)) {
     		notificationService.sendNotificationMessage(userId.concat("님 ")

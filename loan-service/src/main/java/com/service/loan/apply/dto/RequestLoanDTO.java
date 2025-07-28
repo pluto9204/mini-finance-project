@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestLoanDTO {
+	private Long loanId;
 	private String userId;
 	private long monthlyIncome;
 	private long amount;

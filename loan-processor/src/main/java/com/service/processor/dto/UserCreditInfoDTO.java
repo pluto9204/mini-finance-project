@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 public class UserCreditInfoDTO {
 	private String userId;
 	private int creditScore;
-	private long monthlyIncome;
-	private long userDebt;
+	private Long userDebt;
 }

@@ -26,6 +26,12 @@ spring:
   kafka:
     bootstrap-servers: kafka:9092
     producer:
+      acks: all #leader broker and follower broker한테 정산수신응답이 올때까지 기다림
+      retries: 10 #프로듀서가 메세지 성공에 실패하면, 10번 재시도함
+      enable-idempotence: true #메세지 중복전송 방지
+      properties:
+        linger.ms: 5 #프로듀서가 5ms 내에 메세지송신이 오면 모아서 전송함
+        delivery.timeout.ms: 120000 #타임아웃 설정
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
